@@ -14,7 +14,7 @@
 
     let score = 0;
 
-    // Wait for background to load before starting
+    
     skyImg.onload = () => {
       main();
     };
@@ -32,7 +32,7 @@
 
       let bird = { x: 200, y: y, width: 60, height: 60 };
 
-      // Towers array
+      // Towers logic 
       let towers = [{ x: 800, gapY: 300, passed: false }];
 
       function resetGame() {
@@ -47,20 +47,20 @@
       };
 
       for (let i = 0; i < 100000000; i++) {
-        // Bird physics
+        // Bird physics gravitationn
         yVelocity += 0.33 * yAcc;
         y += yVelocity * 0.33;
         bird.y = y;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw background
+        // Draw background sky one
         ctx.drawImage(skyImg, 0, 0, canvas.width, canvas.height);
 
         // Draw bird
         ctx.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
-        // Draw score
+        // Draw score board
         ctx.fillStyle = "white";
         ctx.font = "50px Arial";
         ctx.fillText("Score: " + score, 50, 80);
